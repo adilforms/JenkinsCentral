@@ -1,0 +1,11 @@
+stages{
+stage(Checkout') {
+checkoutRepo('adilforms', 'Nodejssample')
+}
+stage('Build'){
+}
+stage('Test'){
+}
+stage('Publish' {
+}
+}
