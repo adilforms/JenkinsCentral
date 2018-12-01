@@ -5,7 +5,7 @@ stage('Checkout'){
   steps{
   checkout scm
  
-    git branch: master, url: 'https://github.com/adilforms/Nodejssample', credentialsID: 'adilforms'
+    git branch: master, url: 'https://github.com/adilforms/Nodejssample'
   }
   }
 stage('Build'){
