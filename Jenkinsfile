@@ -1,11 +1,25 @@
-stages{
+pipeline {
+  agent any
+stages {
 stage('Checkout'){
+  steps{
 checkoutRepo('adilforms', 'Nodejssample')
+  }
 }
 stage('Build'){
+  steps {
+    echo 'building'
+  }
 }
-stage('Test'){
+stage('Test'){ steps {
+    echo 'building'
+  }
+  
 }
-stage('Publish' {
+stage('Publish') {
+  steps {
+    echo 'building'
+  }
+  
 }
 }
