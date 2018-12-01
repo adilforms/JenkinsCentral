@@ -6,7 +6,7 @@ stage('Checkout'){
   checkout([$class: 'GitSCM',
             branches: [[name: env.BRANCH_NAME]],
            extensions: [[$class: 'CleanBeforeCheckout']],
-                         userRemoteConfigs: [[url: 'https://github.com/adilforms/env.REPO_NAME']] 
+                         userRemoteConfigs: [[url: env.REPO_NAME]] 
                         ])
   }
 }
