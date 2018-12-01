@@ -4,11 +4,12 @@ stages {
 stage('Checkout'){
   steps{
   checkout([$class: 'GitSCM',
-            branches: [[name: env.BRANCH_NAME],
+            branches: [[name: env.BRANCH_NAME]],
            extensions: [[$class: 'CleanBeforeCheckout']],
                          userRemoteConfigs: [[url: 'https://github.com/adilforms/Nodejssample.git']] 
                         ])
   }
+}
 stage('Build'){
   steps {
     echo 'building'
