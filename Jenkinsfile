@@ -3,10 +3,11 @@ pipeline {
 stages {
 stage('Checkout'){
   steps{
-  checkout scm
- 
-    git branch: master, url: 'https://github.com/adilforms/Nodejssample'
-  }
+  checkout([$class: 'GitSCM',
+            branches: [[name: env.BRANCH_NAME]
+           extensions: [[$class: 'CleanBeforeCheckout']],
+                         userRemoteConfigs: [[url: 'https://github.com/adilforms/Nodejssample.git']] 
+                        ])
   }
 stage('Build'){
   steps {
