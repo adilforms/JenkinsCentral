@@ -4,7 +4,7 @@ stages {
 stage('Checkout'){
   steps{
   checkout([$class: 'GitSCM',
-            branches: [[name: 'master'],
+            branches: [[name: 'master']],
            extensions: [[$class: 'CleanBeforeCheckout']],
                          userRemoteConfigs: [[url: 'https://github.com/adilforms/Nodejssample.git']] 
                         ])
