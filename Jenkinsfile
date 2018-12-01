@@ -13,7 +13,7 @@ stage('Checkout'){
 stage('Build'){
   steps {
     echo 'building'
-    npm install
+    sh 'npm install'
   }
 }
 stage('Test'){ steps {
