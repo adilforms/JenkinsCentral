@@ -1,5 +1,5 @@
 stages{
-stage(Checkout') {
+stage('Checkout'){
 checkoutRepo('adilforms', 'Nodejssample')
 }
 stage('Build'){
