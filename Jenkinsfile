@@ -17,13 +17,14 @@ stage('Build'){
   }
 }
 stage('Test'){ steps {
-    echo 'building'
+    echo 'bTesting'
+  sh 'npm test'
   }
   
 }
 stage('Publish') {
   steps {
-    echo 'building'
+    echo 'publishing'
   }
   
 }
