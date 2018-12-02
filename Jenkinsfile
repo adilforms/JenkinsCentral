@@ -16,6 +16,7 @@ stage('Build'){
     echo 'building'
     sh 'npm install'
   }
+}
   stage('Docker-Build'){
   steps {
     echo 'building Docker image'
