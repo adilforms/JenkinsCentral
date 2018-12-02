@@ -1,8 +1,5 @@
 pipeline {
-  agent {
-    docker {image 'node:7-alphine'}
-    
-  }
+  agent any
 stages {
 stage('Checkout'){
   steps{
@@ -17,13 +14,6 @@ stage('Build'){
   steps {
     echo 'building'
     sh 'npm install'
-    docker run 3009:3009 myapp
-    WORKDIR /app
-    COPY package.json /app
-    RUN npm install
-    copy . /app
-    CMD node myapp.js
-    EXPOSE 3009
   }
 }
 stage('Test'){ steps {
@@ -34,16 +24,16 @@ stage('Test'){ steps {
 }
 stage('Publish') {
   steps {
-    withCredentials([string(credentialsId: '7a9b0ed7-6ffe-42b2-aca0-4c06e69e3619', variable: 'Password')]){
+    
     sh '''#!/bin/bash -el
     echo 'publishing'
+   
     docker build -t adilforms/helloworld.1.0.0 .
-    docker login --username adilforms --password $Password
+     docker login --username adilforms --password Rimsha@548
     docker push adilforms/helloworld.1.0.0
     '''
-  }
-  }
   
+  }
 }
 }
 }
