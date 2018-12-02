@@ -26,9 +26,9 @@ stage('Publish') {
   steps {
     sh '''#!/bin/bash -el
     echo 'publishing'
-    docker build -t adilforms/myapp .
-    docker login --username adilforms --password Rismha@548
-    docker push adilforms/myapp
+    sudo docker build -t adilforms/myapp .
+    sudo docker login --username adilforms --password Rismha@548
+    sudo docker push adilforms/myapp
     '''
   }
   
