@@ -3,5 +3,5 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install
 copy . /app
-CMD node app.js
+CMD node myapp.js
 EXPOSE 3009
