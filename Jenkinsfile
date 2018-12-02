@@ -28,7 +28,7 @@ stage('Publish') {
     echo 'publishing'
     docker build -t adilforms/Helloworld.${env.VERSION} .
     docker login --username adilforms --password Rimsha@548
-    docker push adilforms/Helloworld.${env.VERSION}
+    docker push adilforms/Helloworld.1.0.0
     '''
   }
   
