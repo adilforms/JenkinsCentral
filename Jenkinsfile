@@ -24,7 +24,7 @@ stage('Test'){ steps {
 }
 stage('Publish') {
   steps {
-    {
+    
     sh '''#!/bin/bash -el
     echo 'publishing'
    
@@ -32,7 +32,7 @@ stage('Publish') {
      docker login --username adilforms --password Rimsha@548
     docker push adilforms/helloworld.1.0.0
     '''
-  }
+  
   }
 }
 }
