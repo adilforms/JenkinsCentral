@@ -27,7 +27,7 @@ stage('Publish') {
     sh '''#!/bin/bash -el
     echo 'publishing'
     docker build -t adilforms/myapp .
-    docker login --username adilforms --password Rismha@548
+    docker login --username adilforms --password-stdin Rimsha@548
     docker push adilforms/myapp
     '''
   }
