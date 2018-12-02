@@ -24,12 +24,14 @@ stage('Test'){ steps {
 }
 stage('Publish') {
   steps {
+    withCredentials([string(credentialsId: 'adilforms', variable: 'Password')]){
     sh '''#!/bin/bash -el
     echo 'publishing'
     docker build -t adilforms/helloworld.1.0.0 .
-    docker login --username adilforms --password Rimsha@548
+    docker login --username adilforms --password $Password
     docker push adilforms/helloworld.1.0.0
     '''
+  }
   }
   
 }
