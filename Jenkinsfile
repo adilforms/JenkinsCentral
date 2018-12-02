@@ -24,7 +24,7 @@ stage('Test'){ steps {
 }
 stage('Publish') {
   steps {
-    withCredentials([string(credentialsId: 'adilforms', variable: 'Password')]){
+    withCredentials([string(credentialsId: '7a9b0ed7-6ffe-42b2-aca0-4c06e69e3619', variable: 'Password')]){
     sh '''#!/bin/bash -el
     echo 'publishing'
     docker build -t adilforms/helloworld.1.0.0 .
