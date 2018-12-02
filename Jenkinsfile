@@ -17,8 +17,8 @@ stage('Build'){
   }
 }
 stage('Test'){ steps {
-    echo 'bTesting'
-  sh 'npm test'
+    echo 'Testing'
+  
   }
   
 }
