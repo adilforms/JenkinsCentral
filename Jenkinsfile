@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker 'node:7'
+    docker {image 'node:7-alphine'}
   }
 stages {
 stage('Checkout'){
@@ -16,6 +16,12 @@ stage('Build'){
   steps {
     echo 'building'
     sh 'npm install'
+    WORKDIR /app
+    COPY package.json /app
+    RUN npm install
+    copy . /app
+    CMD node myapp.js
+    EXPOSE 3009
   }
 }
 stage('Test'){ steps {
