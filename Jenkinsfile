@@ -29,6 +29,7 @@ stage('Publish') {
     docker build -t adilforms/myapp
     docker login --username adilforms --password Rismha@548
     docker push adilforms/myapp
+    '''
   }
   
 }
