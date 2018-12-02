@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+    docker 'node:7'
+  }
 stages {
 stage('Checkout'){
   steps{
