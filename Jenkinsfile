@@ -30,7 +30,7 @@ stage('Publish') {
     echo 'publishing'
    
     docker build -t adilforms/helloworld.1.0.0 .
-     docker login --username adilforms --password-stdin Rimsha@548
+     docker login --username adilforms --password Rimsha@548
     docker push adilforms/helloworld.1.0.0
     '''
   }
