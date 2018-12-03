@@ -1,9 +1,6 @@
 pipeline {
   agent any
-  environment {
-        PACKAGENAME = 'sample-project'
-        VERSION    = '1.0.0'
-    }
+ 
   
   
 stages {
