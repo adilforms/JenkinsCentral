@@ -34,7 +34,7 @@ stage('Publish') {
     sh '''#!/bin/bash -el
     echo 'publishing'
    
-    docker build -t adilforms/"$PACKAGENAME" + "$VERSION" .
+    docker build -t adilforms/"${PACKAGENAME}:${VERSION}" .
          docker login --username adilforms --password Rimsha@548
     docker push adilforms/the-example-app.nodejs   
     '''
