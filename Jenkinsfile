@@ -1,5 +1,11 @@
 pipeline {
   agent any
+  environment {
+        PACKAGENAME = 'sample-project'
+        VERSION    = '1.0.0'
+    }
+  
+  
 stages {
 stage('Checkout'){
   steps{
@@ -28,7 +34,7 @@ stage('Publish') {
     sh '''#!/bin/bash -el
     echo 'publishing'
    
-    docker build -t adilforms/the-example-app.nodejs .
+    docker build -t adilforms/"$PACKAGENAME" + "$VERSION" .
          docker login --username adilforms --password Rimsha@548
     docker push adilforms/the-example-app.nodejs   
     '''
