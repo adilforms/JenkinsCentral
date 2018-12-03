@@ -29,8 +29,7 @@ stage('Publish') {
     echo 'publishing'
    
     docker build -t adilforms/the-example-app.nodejs .
-    docker run -p 3000:3000 -d the-example-app.nodejs
-     docker login --username adilforms --password Rimsha@548
+         docker login --username adilforms --password Rimsha@548
     docker push adilforms/the-example-app.nodejs   
     '''
   }
