@@ -1,3 +1,4 @@
+import groovy.json.*
 def create-dockerfile() {
   sh '''#!/bin/bash -el
   touch Dockerfile
