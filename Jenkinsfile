@@ -24,6 +24,7 @@ stage('Build'){
 
 stage('Test'){ steps {
     echo 'Testing'
+  sh 'npm test'
   
   }
   
@@ -34,9 +35,9 @@ stage('Publish') {
     sh '''#!/bin/bash -el
     echo 'publishing'
    
-    docker build -t adilforms/samepleapp + ":$BUILD_NUMBER" .
+    docker build -t adilforms/samepleapp.1.0.0
      docker login --username adilforms --password Rimsha@548
-    docker push adilforms/samepleapp + ":$BUILD_NUMBER"
+    docker push adilforms/samepleapp.1.0.0
     '''
   
   }
