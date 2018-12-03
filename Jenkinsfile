@@ -33,7 +33,7 @@ stage('Publish') {
     sh '''#!/bin/bash -el
     echo 'publishing'
    
-    docker build -t adilforms/helloworld + ":$BUILD_NUMBER .
+    docker build -t adilforms/helloworld + ":$BUILD_NUMBER" .
      docker login --username adilforms --password Rimsha@548
     docker push adilforms/helloworld.1.0.0
     '''
