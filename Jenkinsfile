@@ -1,11 +1,11 @@
 pipeline {
-  agent any {
+  agent any 
  withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'adilforms',
 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 
 sh 'echo uname=$USERNAME pwd=$PASSWORD'  
  }
-  }
+  
   
 stages {
 stage('Checkout'){
