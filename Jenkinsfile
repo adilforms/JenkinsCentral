@@ -1,6 +1,5 @@
 pipeline {
-  agent any
-  {
+  agent any {
  withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'adilforms',
 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 
