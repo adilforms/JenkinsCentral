@@ -1,3 +1,17 @@
+def create-dockerfile() {
+  sh '''#!/bin/bash -el
+  touch Dockerfile
+  echo "FROM node:7
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+copy . /app
+CMD node myapp.js
+EXPOSE 3009" > Dockerfile
+  
+  '''
+  
+}
 pipeline {
   agent {
   docker {image 'node:7-alphine'}
@@ -10,28 +24,17 @@ stage('Checkout'){
            extensions: [[$class: 'CleanBeforeCheckout']],
                          userRemoteConfigs: [[url: env.REPO_NAME]] 
                         ])
+    create-dockerfile()
   }
 }
+  
 stage('Build'){
   steps {
     echo 'building'
     sh 'npm install'
   }
 }
-  stage('Docker-Build'){
-  steps {
-    echo 'building Docker image'
-    
-   
-    WORKDIR /app
-    COPY package.json /app
-    RUN npm install
-    copy . /app
-    CMD node myapp.js
-    EXPOSE 3009
-    
-  }
-}
+
 stage('Test'){ steps {
     echo 'Testing'
   
