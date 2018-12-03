@@ -33,7 +33,6 @@ stage('Publish') {
     echo 'publishing'
    
     docker build -t adilforms/"${PACKAGENAME}.${VERSION}" .
-         //docker login --username $USERNAME --password $PASSWORD
     docker push adilforms/"${PACKAGENAME}.${VERSION}" 
     '''
   }
