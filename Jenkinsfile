@@ -1,7 +1,12 @@
 pipeline {
   agent any
- 
-  
+  {
+ withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'adilforms',
+usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+
+sh 'echo uname=$USERNAME pwd=$PASSWORD'  
+ }
+  }
   
 stages {
 stage('Checkout'){
@@ -32,7 +37,7 @@ stage('Publish') {
     echo 'publishing'
    
     docker build -t adilforms/"${PACKAGENAME}.${VERSION}" .
-         docker login --username adilforms --password Rimsha@548
+         docker login --username $USERNAME --password $PASSWORD
     docker push adilforms/"${PACKAGENAME}.${VERSION}" 
     '''
   }
