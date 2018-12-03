@@ -1,8 +1,6 @@
 pipeline {
   agent any 
-  docker {
-    regisryCredentialsId 'adilforms'
-  }
+  
   
 stages {
 stage('Checkout'){
@@ -33,6 +31,7 @@ stage('Publish') {
     echo 'publishing'
    
     docker build -t adilforms/"${PACKAGENAME}.${VERSION}" .
+    regisryCredentialsId 'adilforms'   
     docker push adilforms/"${PACKAGENAME}.${VERSION}" 
     '''
   }
