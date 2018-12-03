@@ -11,7 +11,7 @@ stage('Checkout'){
            extensions: [[$class: 'CleanBeforeCheckout']],
                          userRemoteConfigs: [[url: env.REPO_NAME]] 
                         ])
-    create-dockerfile()
+ 
   }
 }
   
