@@ -1,3 +1,5 @@
+@Library('myDeliveryPipeline') _
+
 pipeline {
   agent any
   stages {
@@ -26,11 +28,8 @@ pipeline {
 
     stage('Publish') {
       steps {
-        sh "echo 'publishing"
-        sh "./docker_build_push.sh"
+        dockerBuildPush()
       }
     }
   }
 }
-
-//dghdkjgh
