@@ -4,4 +4,4 @@ COPY package.json /app
 RUN npm install
 copy . /app
 CMD [ "node", "app.js" ]
-"EXPOSE 3009
+EXPOSE 3009
