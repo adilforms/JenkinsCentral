@@ -2,12 +2,7 @@ pipeline {
   agent any
 stages {
 stage('Checkout'){
-  steps{
-  checkout([$class: 'GitSCM',
-            branches: [[name: env.BRANCH_NAME]],
-           extensions: [[$class: 'CleanBeforeCheckout']],
-                         userRemoteConfigs: [[url: env.REPO_NAME]] 
-                        ])
+        checkout scm
   }
 }
 stage('Build'){
